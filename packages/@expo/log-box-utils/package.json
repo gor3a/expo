@@ -22,6 +22,9 @@
     "build": "expo-build src",
     "clean": "rimraf build",
     "lint": "expo-module lint",
+    "lint:oxlint": "oxlint --config oxlint.config.mjs src",
+    "format": "oxfmt --write src",
+    "format:check": "oxfmt --check src",
     "prepublishOnly": "run-s clean build",
     "depscheck": "expo-module depscheck",
     "typecheck": "tsc -p tsconfig.json"

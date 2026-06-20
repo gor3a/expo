@@ -67,6 +67,9 @@
     "clean": "rimraf build",
     "prepublishOnly": "run-s clean build",
     "lint": "eslint .",
+    "lint:oxlint": "oxlint --config oxlint.config.mjs .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "test": "jest",
     "depscheck": "expo-module depscheck",
     "typecheck": "tsc -p tsconfig.json"
