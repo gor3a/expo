@@ -14,8 +14,12 @@ export default defineConfig({
       rules: {
         // Tests need to re-assign imported bindings to install mocks and spies.
         'no-import-assign': 'off',
+        // Tests construct objects purely for their side effects (e.g. registering a listener).
+        'no-new': 'off',
         // Missing keys in throwaway render arrays inside tests don't affect what the test verifies.
         'react/jsx-key': 'off',
+        // Tests reject with the non-Error shapes that real APIs have (e.g. `@expo/spawn-async`)
+        'prefer-promise-reject-errors': 'off',
       },
     },
     {
@@ -46,12 +50,18 @@ export default defineConfig({
     // --- Intentional patterns  ---
     // -----------------------------
 
+    // @kitten/@zoontek should disable this rule and audit resulting warnings/errors
+    'no-async-promise-executor': 'off',
     // We match terminal/ANSI control characters in regexes.
     'no-control-regex': 'off',
     // Empty leading branches (e.g. `if (x) {} else if ...`) are used as intentional guard clauses.
     'no-lone-blocks': 'off',
     // We declare properties on `globalThis`.
     'no-shadow-restricted-names': 'off',
+    // Throwing non-Error values is an accepted pattern in this codebase.
+    'no-throw-literal': 'off',
+    // @kitten/@zoontek should disable this rule and audit resulting warnings/errors
+    'no-unsafe-optional-chaining': 'off',
     // @kitten/@zoontek should disable this rule and audit resulting warnings/errors
     'typescript/no-non-null-asserted-optional-chain': 'off',
     // Triple-slash references are an accepted pattern in this codebase.
